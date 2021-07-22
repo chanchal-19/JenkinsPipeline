@@ -1,0 +1,11 @@
+---
+- name: Create Docker Image from DockerFile
+  hosts: servers
+  remote_user: deqode
+#  sudo: yes
+  tasks:
+  - name: Creating docker containers
+    command:
+      cmd: docker-compose up --detach
+    args:
+      chdir: /home/deqode/ck

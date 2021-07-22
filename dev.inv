@@ -1,0 +1,4 @@
+[anotherinstance18.04]
+34.93.137.161 ansible_user=deqode
+[anotherinstance18.04:vars]
+ansible_python_interpreter=/usr/bin/python3

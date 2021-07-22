@@ -1,0 +1,22 @@
+---
+- name: Pulling git code to gcp server
+  hosts: servers
+  remote_user: deqode
+  become: yes
+  tasks:
+  - name: Checking for App Directory
+    stat:
+      path: '/home/deqode/Training_task'
+    register: ck
+  - name: Condition to check if directory exists!
+    debug:
+      msg: 'Git directory exists hence not cloning'
+    when: ck.stat.exists and ck.stat.isdir
+  - name: Condition to check if directory not exists!
+    command: git clone "https://github.com/chanchal-19/Training_task.git"
+    when: not (ck.stat.exists and ck.stat.isdir)
+  - name: Fetching latest changes
+    command: git fetch --all
+    command: git pull
+    args:
+      chdir: /home/deqode/Training_task
