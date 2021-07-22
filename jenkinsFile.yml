@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Fetch GIT Repo from Github') {
             steps {
-                git branch:'main', credentialsId: 'b03d90b9-0cc9-400e-9d03-79f134bc28c6', url: 'https://github.com/chanchal-19/Training_task.git'
+                git branch:'main', credentialsId: 'b03d90b9-0cc9-400e-9d03-79f134bc28c6', url: 'https://github.com/chanchal-19/JenkinsPipeline.git'
             }
         }
         stage('Doing package installation on host') {
